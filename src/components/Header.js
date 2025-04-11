@@ -2,7 +2,7 @@ import {Container, Navbar, NavbarBrand, Collapse, NavbarToggler, Nav, NavItem } 
 import NucampLogo from '../app/assets/img/logo.png'
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
-
+import UserLoginForm from '../features/user/UserLoginForm'
 const Header = () => {
     return (
         <Navbar dark color='primary' sticky='top' expand='md'> 
@@ -14,6 +14,7 @@ const Header = () => {
 
           <NavbarToggler />
           <Collapse navbar>
+          <UserLoginForm />
             <Nav className = 'ms-auto' navbar>
               <NavItem>
                 <NavLink className = 'nav-link' to='/'>

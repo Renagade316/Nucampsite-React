@@ -1,14 +1,30 @@
 import { CAMPSITES } from "../../app/shared/CAMPSITES";
+import { createSlice } from "@reduxjs/toolkit";
+//import { useSelector } from "react-redux";
 
-export const selectAllCampsites = () => {
-    return CAMPSITES
+const initialState = {
+    campsitesArray: CAMPSITES
+};
+
+const campsiteSlice = createSlice({
+    name: 'campsites',
+    initialState // since the key and obj name are the same you can write it once
+});
+
+export const campsitesReducer = campsiteSlice.reducer;
+
+
+
+export const selectAllCampsites = (state) => {
+    return state.campsites.campsitesArray
 }
 
-export const selectCampsiteById = (id) => {
-    return CAMPSITES.find((campsite)=> campsite.id === parseInt(id))
+export const selectCampsiteById = (id) => (state) => {
+    return state.campsites.campsitesArray.find(
+        (campsite)=> campsite.id === parseInt(id))
 }
 
 
-export const selectFeaturedCampsite = () => {
-    return CAMPSITES.find((campsite)=> campsite.featured)
+export const selectFeaturedCampsite = (state) => {
+    return state.campsites.campsitesArray.find((campsite)=> campsite.featured)
 }
