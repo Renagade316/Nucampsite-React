@@ -9,8 +9,19 @@ import CampsiteDetailPage from './pages/CampsiteDetailPage.js';
 //import CampsiteList from './features/campsites/CampsitesList.js';
 import Footer from './components/Footer';
 import AboutPage from './pages/AboutPage.js';
+import { useEffect } from 'react';
+import { fetchCampsites } from './features/campsites/campsiteSlice.js';
+import { useDispatch } from 'react-redux';
+import { fetchPartners } from './features/partners/partnersSlice.js';
+import {fetchPromotions} from './features/promotions/promotionsSlice.js';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(()=> {
+    dispatch(fetchCampsites());
+    dispatch(fetchPartners());
+    dispatch(fetchPromotions());
+  }, [dispatch]) // This avoids error
   return (
     <div className="App">
       <Header />
