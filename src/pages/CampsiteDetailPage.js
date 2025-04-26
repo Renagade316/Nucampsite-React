@@ -14,16 +14,7 @@ const CampsiteDetailPage = () => {
     const errMsg = useSelector((state) => state.campsites.errMsg);
 
     // Only fetch campsite data once loading is complete
-    const campsite = useSelector((state) => {
-        if (!isLoading && !errMsg) {
-            return selectCampsiteById(campsiteId)(state);
-        }
-        return null;
-    });
-
-    const allCampsites = useSelector((state) => state.campsites.campsitesArray);
-    console.log("ALL:", allCampsites);
-
+    const campsite = useSelector(selectCampsiteById(campsiteId));
     let content;
 
     if (isLoading) {

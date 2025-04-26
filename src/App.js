@@ -14,6 +14,7 @@ import { fetchCampsites } from './features/campsites/campsiteSlice.js';
 import { useDispatch } from 'react-redux';
 import { fetchPartners } from './features/partners/partnersSlice.js';
 import {fetchPromotions} from './features/promotions/promotionsSlice.js';
+import { fetchComments } from './features/comments/commentSlice.js';
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function App() {
     dispatch(fetchCampsites());
     dispatch(fetchPartners());
     dispatch(fetchPromotions());
+    dispatch(fetchComments());
   }, [dispatch]) // This avoids error
   return (
     <div className="App">
